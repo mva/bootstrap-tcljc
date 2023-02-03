@@ -1,5 +1,5 @@
-JDK_BIN=$(HOME)/local/jdk-classfile/bin
-JAR=$(JDK_BIN)/jar
+JDK_BIN=$(HOME)/local/jdk-classfile/bin/
+JAR=$(JDK_BIN)jar
 
 # Note: "jar --create" seems to order constant pool entries in a
 # non-deterministic way, across JDK versions (going from 15 to 14) and
@@ -24,3 +24,7 @@ jar_name=$(subst .,-,$(1)).jar
 	rm -rf $(dir $<)
 
 pack: $(patsubst %/module-info.class,%.jar,$(wildcard */module-info.class))
+
+
+deprscan:
+	$(JDK_BIN)jdeprscan tinyclj.rt tinyclj.core tinyclj.compiler
