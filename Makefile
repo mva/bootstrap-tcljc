@@ -20,3 +20,6 @@ pack: $(patsubst %/module-info.class,%.jar,$(wildcard */module-info.class))
 
 deprscan:
 	$(JDK_BIN)jdeprscan tinyclj.rt tinyclj.core tinyclj.compiler
+
+jdeps:
+	$(JDK_BIN)jdeps --module-path . tinyclj.*
