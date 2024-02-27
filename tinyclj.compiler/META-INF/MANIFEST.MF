@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Created-By: 22.0.1-internal (N/A)
+Created-By: 22-internal (N/A)
 Main-Class: tcljc.main.___
 
