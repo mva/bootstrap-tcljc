@@ -1,13 +1,13 @@
 JDK_BIN=$(HOME)/local/jdk-classfile/bin/
 JAR=$(JDK_BIN)jar
 
-module_name=$(subst -,.,$(dir $(1)))
-%/module-info.class: %.jar
-	mkdir $(call module_name,$@)
-	cd $(call module_name,$@) && $(JAR) xf ../$<
+module_name=$(subst -,.,$(1))
+%.unpack_dummy: %.jar
+	mkdir $(call module_name,$*)
+	cd $(call module_name,$*) && $(JAR) xf ../$<
 	rm -f $<
 
-unpack: $(patsubst %.jar,%/module-info.class,$(wildcard *.jar))
+unpack: $(patsubst %.jar,%.unpack_dummy,$(wildcard *.jar))
 
 
 jar_name=$(subst .,-,$(1)).jar
